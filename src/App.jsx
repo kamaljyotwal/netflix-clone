@@ -1,12 +1,8 @@
-import "./App.css";
+import React from "react";
+import JumbotronContainer from "./CONTAINERS/JumbotronContainer";
 
 function App() {
-  return (
-    <div className="App">
-      <p>this is working</p>
-      <p>is it?</p>
-    </div>
-  );
+  return <JumbotronContainer />;
 }
 
 export default App;

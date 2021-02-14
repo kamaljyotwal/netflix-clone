@@ -2,11 +2,16 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import "normalize.css"        // used to make styles appear similar on all browsers
+import { GlobalStyle } from "./GlobalStyle";  // importing globalstyle to rest styling 
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <>
+      <GlobalStyle />
+      <App />
+    </>
   </React.StrictMode>,
   document.getElementById('root')
 );
