@@ -1,8 +1,8 @@
-#
+##### This project was bootstrapped with [Create React App].
 
-This project was bootstrapped with [Create React App].
+## Description
 
-### Description
+---
 
-This Project is a Netflix clone app. built with React.js.
-I am doing it a final keystone project after React Bootcamp syllabus.
+This Project is a Netflix clone app built with React.js.
+I am doing it a final keystone project after React Bootcamp completion.

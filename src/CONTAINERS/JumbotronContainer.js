@@ -3,7 +3,7 @@
 
 import React from 'react'
 import jumboData from "../JSON/jumboData.json";
-import Jumbotron from '../COMPONENTS/jumbotron'
+import { Jumbotron } from '../COMPONENTS/index'
 
 export default function JumbotronContainer() {
     return (

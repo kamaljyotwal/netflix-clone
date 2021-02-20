@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import "normalize.css"        // used to make styles appear similar on all browsers
-import { GlobalStyle } from "./GlobalStyle";  // importing globalstyle to rest styling 
+import { GlobalStyle } from "./GlobalStyle";  // importing globalstyle to reset the styling 
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
