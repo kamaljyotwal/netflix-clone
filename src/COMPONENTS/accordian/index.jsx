@@ -28,7 +28,16 @@ Accordian.Item = function AccordianItem({ children, ...restProps }) {
 Accordian.Header = function AccordianHeader({ children, ...restProps }) {
   const { toggleShow, setToggleShow } = useContext(ToggleContext);
 
-  return <Header onClick={() => setToggleShow((toggleShow) => !toggleShow)}>{children}</Header>;
+  return (
+    <Header onClick={() => setToggleShow((toggleShow) => !toggleShow)}>
+      {children}
+      {toggleShow ? (
+        <img src="/images/icons/close-slim.png" alt="close here" />
+      ) : (
+        <img src="/images/icons/add.png" alt="open here" />
+      )}
+    </Header>
+  );
 };
 
 Accordian.Body = function AccordianBody({ children, ...restProps }) {
