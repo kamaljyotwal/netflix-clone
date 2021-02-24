@@ -1,12 +1,12 @@
 import React from "react";
-import { Container, Input, Button, Text } from "./styles/optFormStyles";
+import { Container, Input, Button, Text, FieldContainer } from "./styles/optFormStyles";
 
 export default function OptForm({ children, ...restProps }) {
   return <Container {...restProps}>{children}</Container>;
 }
 
 OptForm.Text = function OptFormText({ children, ...restProps }) {
-  return <Text>{children}</Text>;
+  return <Text {...restProps}>{children}</Text>;
 };
 
 OptForm.Input = function OptFormInput({ ...restProps }) {
@@ -14,5 +14,9 @@ OptForm.Input = function OptFormInput({ ...restProps }) {
 };
 
 OptForm.Button = function OptFormButton({ children, ...restProps }) {
-  return <Button>{children}</Button>;
+  return <Button {...restProps}>{children}</Button>;
+};
+
+OptForm.FieldContainer = function OptFormFieldContainer({ children, ...restProps }) {
+  return <FieldContainer {...restProps}>{children}</FieldContainer>;
 };

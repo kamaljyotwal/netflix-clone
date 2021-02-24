@@ -2,19 +2,23 @@ import styled from "styled-components/macro";
 
 export const Container = styled.div`
   /* border: 2px solid yellow; */
-  display: flex;
   justify-content: center;
   max-width: 650px;
-  margin: auto;
-  height: 60px;
+  margin: 3rem auto 0;
 `;
+
 export const Text = styled.div`
   /* border: 2px solid blue; */
   color: white;
   font-size: 19px;
   text-align: center;
-  padding: 3rem 0 1.2rem;
+  padding: 1rem 0 1.2rem;
   font-family: Arial, Helvetica, sans-serif;
+`;
+export const FieldContainer = styled.div`
+  /* border: 2px solid gold; */
+  display: flex;
+  height: 60px;
 `;
 
 export const Input = styled.input.attrs({ type: "email" })`
@@ -28,13 +32,13 @@ export const Input = styled.input.attrs({ type: "email" })`
 
 export const Button = styled.button`
   /* border:2px solid gold; */
-  /* border: none; */
+  border: none;
   background-color: #f40612;
   color: white;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 32%;
+  width: 35%;
   font-size: 1.5rem;
   letter-spacing: 0.5px;
   padding: 0.5rem;

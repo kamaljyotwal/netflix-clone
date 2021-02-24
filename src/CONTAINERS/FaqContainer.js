@@ -1,6 +1,7 @@
 import React from "react";
 import { Accordian, OptForm } from "../COMPONENTS/index";
 import json from "../JSON/faqData.json";
+
 export default function FaqContainer() {
   return (
     <Accordian>
@@ -12,18 +13,22 @@ export default function FaqContainer() {
         </Accordian.Item>
       ))}
 
-      {/*----------------------opt-In Form starts here----------------------- */}
-      <OptForm.Text>
-        Ready to watch? Enter your email to create or restart your membership.
-      </OptForm.Text>
 
+      {/*----------------------opt-In Form starts here----------------------- */}
       <OptForm>
-        <OptForm.Input />
-        <OptForm.Button>
-          Get Started
-          <img src="./images/icons/chevron-right.png" alt="click to submit email" />
-        </OptForm.Button>
+        <OptForm.Text>
+          Ready to watch? Enter your email to create or restart your membership.
+        </OptForm.Text>
+
+        <OptForm.FieldContainer>
+          <OptForm.Input />
+          <OptForm.Button>
+            Get Started
+            <img src="./images/icons/chevron-right.png" alt="click to submit email" />
+          </OptForm.Button>
+        </OptForm.FieldContainer>
       </OptForm>
+      
     </Accordian>
   );
 }
