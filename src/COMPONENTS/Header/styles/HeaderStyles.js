@@ -6,12 +6,12 @@ export const Background = styled.section`
   /* display: flex;
   flex-direction: column; */
   background: url(${({ src }) => src ? `../images/misc/${src}.jpg` : "../images/misc/home-bg.jpg"})
-    top left / cover no-repeat;
-    height: 100vh;
-    width: 100%;
+  top left / cover no-repeat;
+  height: 100vh;
+  width: 100%;
   .overlay {
-    width: 100vw;
-    height: 100vh;
+    width: auto;
+    min-height: 100vh;
     background: rgba(333, 444, 331, 0.4);
   }
 

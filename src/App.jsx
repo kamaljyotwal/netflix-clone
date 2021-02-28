@@ -2,6 +2,7 @@ import React from "react";
 import * as ROUTES from "./CONSTANTS/routes";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import { Home, Browse, SignIn, SignUp } from "./PAGES";
+import LoginHelp from "./PAGES/LoginHelp";
 
 function App() {
   return (
@@ -13,6 +14,10 @@ function App() {
 
         <Route exact={true} path={ROUTES.SIGN_IN}>
           <SignIn />
+        </Route>
+
+        <Route exact={true} path={ROUTES.LOGIN_HELP}>
+          <LoginHelp />
         </Route>
 
         <Route exact={true} path={ROUTES.SIGN_UP}>
