@@ -17,39 +17,39 @@ import {
   StyledLink2,
 } from "./styles/signinFormStyles";
 
-export default function SigninForm({ children, ...restProps }) {
+export default function Form({ children, ...restProps }) {
   return <Container {...restProps}>{children}</Container>;
 }
 
-SigninForm.InnerContainer = function SigninFormIC({ children }) {
+Form.InnerContainer = function FormIC({ children }) {
   return <InnerTextContainer>{children}</InnerTextContainer>;
 };
 
-SigninForm.Title = function SigninFormTitle({ children }) {
+Form.Title = function FormTitle({ children }) {
   return <Title>{children}</Title>;
 };
 
-SigninForm.Form = function SigninFormForm({ children, ...restProps }) {
+Form.Form = function FormForm({ children, ...restProps }) {
   return <FormDiv {...restProps}>{children}</FormDiv>;
 };
 
-SigninForm.Input = function SigninFormInput({ children, ...restProps }) {
+Form.Input = function FormInput({ children, ...restProps }) {
   return <Input {...restProps}>{children}</Input>;
 };
 
-SigninForm.Submit = function SigninFormsubmit({ children, ...restProps }) {
+Form.Submit = function Formsubmit({ children, ...restProps }) {
   return <SubmitBtn {...restProps}>{children}</SubmitBtn>;
 };
 
-SigninForm.SecondaryContainer = function SigninFormSecondaryContainer({ children, ...restProps }) {
+Form.SecondaryContainer = function FormSecondaryContainer({ children, ...restProps }) {
   return <SecondaryContainer {...restProps}>{children}</SecondaryContainer>;
 };
 
-SigninForm.CheckBoxNneedHelpContainer = function SigninFormChecknHelp({ children, ...restProps }) {
+Form.CheckBoxNneedHelpContainer = function FormChecknHelp({ children, ...restProps }) {
   return <CheckboxNLinkContainer>{children}</CheckboxNLinkContainer>;
 };
 
-SigninForm.CheckBox = function SigninFormCheckbox({ children, text, ...restProps }) {
+Form.CheckBox = function FormCheckbox({ children, text, ...restProps }) {
   return (
     <CheckboxContainer {...restProps}>
       <Checkbox {...restProps} id="checkboxSignin" />
@@ -58,21 +58,21 @@ SigninForm.CheckBox = function SigninFormCheckbox({ children, text, ...restProps
   );
 };
 
-SigninForm.Link = function SigninFormlinkstyled({ children, to, ...restProps }) {
+Form.Link = function Formlinkstyled({ children, to, ...restProps }) {
   return <LinkStyled to={to}>{children}</LinkStyled>;
 };
 
-SigninForm.Text = function SigninFormText({ children, to, ...restProps }) {
+Form.Text = function FormText({ children, to, ...restProps }) {
   return (
     <>
       <Text>{children}</Text>
     </>
   );
 };
-SigninForm.Link = function SigninFormLink({ children, to, ...restProps }) {
+Form.Link = function FormLink({ children, to, ...restProps }) {
   return <StyledLink2 to={to}>{children}</StyledLink2>;
 };
 
-SigninForm.SubText = function SigninFormSubText({ children, ...restProps }) {
+Form.SubText = function FormSubText({ children, ...restProps }) {
   return <SubText>{children}</SubText>;
 };

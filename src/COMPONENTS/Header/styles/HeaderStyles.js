@@ -2,13 +2,14 @@ import styled from "styled-components/macro";
 import { Link } from "react-router-dom";
 
 export const Background = styled.section`
-  /* border: 5px solid green; */
+  border: 1px solid #111111;
   /* display: flex;
   flex-direction: column; */
   background: url(${({ src }) => src ? `../images/misc/${src}.jpg` : "../images/misc/home-bg.jpg"})
   top left / cover no-repeat;
-  height: 100vh;
+  min-height: 100vh;
   width: 100%;
+  height: auto;
   .overlay {
     width: auto;
     min-height: 100vh;

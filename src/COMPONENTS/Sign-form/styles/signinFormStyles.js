@@ -8,6 +8,7 @@ export const Container = styled.div`
   margin: 0 auto;
   background-color: rgba(0, 0, 0, 0.7);
   margin-top: 3rem;
+  margin-bottom: 2rem;
 `;
 export const Title = styled.div`
   font-size: 32px;
@@ -23,9 +24,7 @@ export const FormDiv = styled.form`
 export const InnerTextContainer = styled.div`
   /* border: 1px solid white; */
   /* padding: 2rem 4rem; */
-
   border-radius: 4px;
-
   margin: 0 auto;
 `;
 

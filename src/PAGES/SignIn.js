@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { SigninForm } from "../COMPONENTS";
+import { Form } from "../COMPONENTS";
 import FooterContainer from "../CONTAINERS/FooterContainer";
 import HeaderContainer from "../CONTAINERS/HeaderContainer";
 import * as ROUTES from "../CONSTANTS/routes";
@@ -10,6 +10,7 @@ export default function SignIn() {
 
   const isInvalid = password.length === 0 || emailAddress.length === 0;
 
+  // Form Submission functions
   const handleSignin = (e) => {
     e.preventDefault();
     console.log(emailAddress);
@@ -17,57 +18,53 @@ export default function SignIn() {
     setEmailAddress("");
     setPassword("");
   };
+  const alerting = (e) => {
+    e.preventDefault();
+    alert("Input fields cannot be empty");
+  };
 
   return (
     <>
-      <HeaderContainer>
-        <SigninForm>
-          <SigninForm.InnerContainer>
-            <SigninForm.Title>Sign In</SigninForm.Title>
-            <SigninForm.Form onSubmit={handleSignin}>
-              <SigninForm.Input
+      <HeaderContainer noButton>
+        <Form>
+          <Form.InnerContainer>
+            <Form.Title>Sign In</Form.Title>
+            <Form.Form onSubmit={isInvalid ? alerting : handleSignin}>
+              <Form.Input
                 placeholder="Email or phone number"
                 value={emailAddress}
-                onChange={(e) => e.target.value.length > -1 && setEmailAddress(e.target.value)}
+                onChange={(e) => setEmailAddress(e.target.value)}
                 type="email"
               />
 
-              {/* password field */}
-              <SigninForm.Input
+              <Form.Input
                 placeholder="Password"
                 value={password}
-                onChange={(e) => e.target.value.length > -1 && setPassword(e.target.value)}
+                onChange={(e) => setPassword(e.target.value)}
                 type="password"
                 autoComplete="off"
               />
-              <SigninForm.Submit
-                type="submit"
-                onClick={(e) =>
-                  isInvalid ? alert("Email or Password field cannot be empty") : handleSignin
-                }
-              >
-                Sign In
-              </SigninForm.Submit>
-            </SigninForm.Form>
-          </SigninForm.InnerContainer>
+              <Form.Submit type="submit">Sign In</Form.Submit>
+            </Form.Form>
+          </Form.InnerContainer>
 
-          <SigninForm.SecondaryContainer>
-            <SigninForm.CheckBoxNneedHelpContainer>
-              <SigninForm.CheckBox text="Remember me" />
+          <Form.SecondaryContainer>
+            <Form.CheckBoxNneedHelpContainer>
+              <Form.CheckBox text="Remember me" />
 
-              <SigninForm.Link to={ROUTES.LOGIN_HELP}>Need Help?</SigninForm.Link>
-            </SigninForm.CheckBoxNneedHelpContainer>
+              <Form.Link to={ROUTES.LOGIN_HELP}>Need Help?</Form.Link>
+            </Form.CheckBoxNneedHelpContainer>
 
-            <SigninForm.Text>
+            <Form.Text>
               New to Netflix?
-              <SigninForm.Link to={ROUTES.SIGN_UP}>Sign up now.</SigninForm.Link>
-            </SigninForm.Text>
+              <Form.Link to={ROUTES.SIGN_UP}>Sign up now.</Form.Link>
+            </Form.Text>
 
-            <SigninForm.SubText>
+            <Form.SubText>
               This page is protected by Google reCAPTCHA to ensure you're not a bot.
-            </SigninForm.SubText>
-          </SigninForm.SecondaryContainer>
-        </SigninForm>
+            </Form.SubText>
+          </Form.SecondaryContainer>
+        </Form>
       </HeaderContainer>
 
       <FooterContainer />
