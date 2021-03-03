@@ -15,6 +15,8 @@ import {
   Text,
   SubText,
   StyledLink2,
+  ErrorDiv,
+  RegistrationDiv,
 } from "./styles/signinFormStyles";
 
 export default function Form({ children, ...restProps }) {
@@ -31,6 +33,13 @@ Form.Title = function FormTitle({ children }) {
 
 Form.Form = function FormForm({ children, ...restProps }) {
   return <FormDiv {...restProps}>{children}</FormDiv>;
+};
+
+Form.Error = function FormError({ children, ...restProps }) {
+  return <ErrorDiv>{children}</ErrorDiv>;
+};
+Form.Registration = function FormRegistration({ children }) {
+  return <RegistrationDiv>{children}</RegistrationDiv>;
 };
 
 Form.Input = function FormInput({ children, ...restProps }) {

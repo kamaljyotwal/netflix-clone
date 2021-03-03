@@ -1,26 +1,30 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Form } from "../COMPONENTS";
 import FooterContainer from "../CONTAINERS/FooterContainer";
 import HeaderContainer from "../CONTAINERS/HeaderContainer";
 import * as ROUTES from "../CONSTANTS/routes";
+import { FirebaseContext } from "../context/firebaseContext";
 
 export default function SignUp() {
   const [name, setName] = useState("");
   const [emailAddress, setEmailAddress] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const [registration, setRegistration] = useState(false);
+  const { firebaseConst } = useContext(FirebaseContext);
 
   const isInvalid = password.length === 0 || emailAddress.length === 0 || name.length === 0;
 
   // Form submission handling functions
   const handleSignup = (e) => {
     e.preventDefault();
-    console.log(name);
-    console.log(emailAddress);
-    console.log(password);
-    setEmailAddress("");
-    setPassword("");
-    setName("");
+    firebaseConst
+      .auth()
+      .createUserWithEmailAndPassword(emailAddress, password)
+      .then((res) => setRegistration(true), setError(""), setPassword(""), setEmailAddress(""))
+      .catch((err) => setError(err.message), setPassword(""));
   };
+
   const alerting = (e) => {
     e.preventDefault();
     alert("Input fields cannot be empty");
@@ -34,6 +38,11 @@ export default function SignUp() {
             <Form.Title>Sign Up Here</Form.Title>
 
             <Form.Form onSubmit={isInvalid ? alerting : handleSignup}>
+              {error && <Form.Error>{error}</Form.Error>}
+              {registration && (
+                <Form.Registration>Registered Succesfully, Sign in now</Form.Registration>
+              )}
+
               <Form.Input
                 placeholder="First name"
                 value={name}

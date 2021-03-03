@@ -5,6 +5,7 @@ export const Container = styled.div`
   /* border: 2px solid blue; */
   padding: 4rem;
   width: 450px;
+  height: auto;
   margin: 0 auto;
   background-color: rgba(0, 0, 0, 0.7);
   margin-top: 3rem;
@@ -26,6 +27,24 @@ export const InnerTextContainer = styled.div`
   /* padding: 2rem 4rem; */
   border-radius: 4px;
   margin: 0 auto;
+`;
+
+export const ErrorDiv = styled.div`
+  border: 2px solid #e87c03;
+  color: white;
+  background-color: #e87c03;
+  border-radius: 4px;
+  padding: 0.8rem 1rem;
+  margin-bottom: 0.8rem;
+`;
+
+export const RegistrationDiv = styled.div`
+  border: 2px solid #1a9b27;
+  color: white;
+  background-color: #1a9b27;
+  border-radius: 4px;
+  padding: 0.8rem 1rem;
+  margin-bottom: 0.8rem;
 `;
 
 export const Input = styled.input`

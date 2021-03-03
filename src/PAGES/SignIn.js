@@ -1,23 +1,30 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Form } from "../COMPONENTS";
+import { useHistory } from "react-router-dom";
 import FooterContainer from "../CONTAINERS/FooterContainer";
 import HeaderContainer from "../CONTAINERS/HeaderContainer";
 import * as ROUTES from "../CONSTANTS/routes";
+import { FirebaseContext } from "../context/firebaseContext";
 
 export default function SignIn() {
+  const history = useHistory();
+  const { firebaseConst } = useContext(FirebaseContext);
   const [emailAddress, setEmailAddress] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
 
   const isInvalid = password.length === 0 || emailAddress.length === 0;
 
   // Form Submission functions
   const handleSignin = (e) => {
     e.preventDefault();
-    console.log(emailAddress);
-    console.log(password);
-    setEmailAddress("");
-    setPassword("");
+    firebaseConst
+      .auth()
+      .signInWithEmailAndPassword(emailAddress, password)
+      .then(() => history.push(ROUTES.BROWSE))
+      .catch((err) => setError(err.message), setPassword(""));
   };
+
   const alerting = (e) => {
     e.preventDefault();
     alert("Input fields cannot be empty");
@@ -30,6 +37,7 @@ export default function SignIn() {
           <Form.InnerContainer>
             <Form.Title>Sign In</Form.Title>
             <Form.Form onSubmit={isInvalid ? alerting : handleSignin}>
+              {error && <Form.Error>{error}</Form.Error>}
               <Form.Input
                 placeholder="Email or phone number"
                 value={emailAddress}
