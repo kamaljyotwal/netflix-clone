@@ -1,16 +1,18 @@
 import React, { useState, useContext } from "react";
 import { Form } from "../COMPONENTS";
+import { useHistory } from "react-router-dom";
 import FooterContainer from "../CONTAINERS/FooterContainer";
 import HeaderContainer from "../CONTAINERS/HeaderContainer";
 import * as ROUTES from "../CONSTANTS/routes";
 import { FirebaseContext } from "../context/firebaseContext";
 
 export default function SignUp() {
+  const history = useHistory();
   const [name, setName] = useState("");
   const [emailAddress, setEmailAddress] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-  const [registration, setRegistration] = useState(false);
+  // const [registration, setRegistration] = useState(false);
   const { firebaseConst } = useContext(FirebaseContext);
 
   const isInvalid = password.length === 0 || emailAddress.length === 0 || name.length === 0;
@@ -21,8 +23,18 @@ export default function SignUp() {
     firebaseConst
       .auth()
       .createUserWithEmailAndPassword(emailAddress, password)
-      .then((res) => setRegistration(true), setError(""), setPassword(""), setEmailAddress(""))
-      .catch((err) => setError(err.message), setPassword(""));
+      .then((res) =>
+        res.user.updateProfile({
+          displayName: name,
+          photoURL: Math.floor(Math.random() * 5) + 1,
+        })
+      )
+      .then(() => history.push(ROUTES.BROWSE))
+      .catch((err) => {
+        setError(err.message);
+        setEmailAddress("");
+        setPassword("");
+      });
   };
 
   const alerting = (e) => {
@@ -39,9 +51,9 @@ export default function SignUp() {
 
             <Form.Form onSubmit={isInvalid ? alerting : handleSignup}>
               {error && <Form.Error>{error}</Form.Error>}
-              {registration && (
+              {/* {registration && (
                 <Form.Registration>Registered Succesfully, Sign in now</Form.Registration>
-              )}
+              )} */}
 
               <Form.Input
                 placeholder="First name"
