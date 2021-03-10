@@ -1,34 +1,39 @@
 import React from "react";
 import * as ROUTES from "./CONSTANTS/routes";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Home, Browse, SignIn, SignUp } from "./PAGES";
 import LoginHelp from "./PAGES/LoginHelp";
+// import { IsUserRedirect } from "./helpers/routehelp";
+import { AuthListenerHook } from "./customHooks";
 
 function App() {
+  const userVar = AuthListenerHook();
+  console.log(userVar);
+
   return (
-    <>
-      <Router>
+    <Router>
+      <Switch>
         <Route exact={true} path={ROUTES.HOME}>
           <Home />
         </Route>
 
-        <Route exact={true} path={ROUTES.SIGN_IN}>
+        <Route path={ROUTES.SIGN_IN}>
           <SignIn />
         </Route>
 
-        <Route exact={true} path={ROUTES.LOGIN_HELP}>
-          <LoginHelp />
+        <Route path={ROUTES.SIGN_UP}>
+          <SignUp />
         </Route>
 
-        <Route exact={true} path={ROUTES.SIGN_UP}>
-          <SignUp />
+        <Route path={ROUTES.LOGIN_HELP}>
+          <LoginHelp />
         </Route>
 
         <Route exact={true} path={ROUTES.BROWSE}>
           <Browse />
         </Route>
-      </Router>
-    </>
+      </Switch>
+    </Router>
   );
 }
 
