@@ -8,7 +8,7 @@ import { AuthListenerHook } from "./customHooks";
 
 function App() {
   const userVar = AuthListenerHook();
-  console.log(userVar);
+  // console.log(userVar);
 
   return (
     <Router>
