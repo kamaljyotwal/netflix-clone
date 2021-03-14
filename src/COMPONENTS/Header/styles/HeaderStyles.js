@@ -5,8 +5,8 @@ export const Background = styled.section`
   border: 1px solid #111111;
   /* display: flex;
   flex-direction: column; */
-  background: url(${({ src }) => src ? `../images/misc/${src}.jpg` : "../images/misc/home-bg.jpg"})
-  top left / cover no-repeat;
+  background: url(${({ src }) =>src ? `../images/misc/${src}.jpg` : "../images/misc/home-bg.jpg"})
+    top left / cover no-repeat;
   min-height: 100vh;
   width: 100%;
   height: auto;
@@ -21,8 +21,16 @@ export const Background = styled.section`
   }
 `;
 
+export const OuterMostDiv = styled.div`
+  border: 2px solid gold;
+  width: 100%;
+  /* min-height: 100vh; */
+  height: 100%;
+  background-color: #222222;
+`;
+
 export const Container = styled.div`
-  /* border: 1px solid red; */
+  /* border: 3px solid red; */
   display: flex;
   margin: 0 56px;
   /* height: 64px; */

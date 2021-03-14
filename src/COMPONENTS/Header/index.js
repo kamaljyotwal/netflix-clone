@@ -1,9 +1,19 @@
 import React from "react";
-import { Background, Container, LogoImg, ButtonLinkStyled } from "./styles/HeaderStyles";
+import {
+  Background,
+  OuterMostDiv,
+  Container,
+  LogoImg,
+  ButtonLinkStyled,
+} from "./styles/HeaderStyles";
 import { Link as RouterLink } from "react-router-dom";
 
 export default function Header({ bg = true, children, ...restProps }) {
-  return bg ? <Background {...restProps}>{children}</Background> : { children };
+  return bg ? (
+    <Background {...restProps}>{children}</Background>
+  ) : (
+    <OuterMostDiv {...restProps}> {children}</OuterMostDiv>
+  );
 }
 
 Header.Frame = function HeaderFrame({ children, ...restProps }) {

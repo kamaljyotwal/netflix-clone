@@ -5,3 +5,5 @@ export { default as OptForm } from "./opt-form";
 export { default as Header } from "./Header";
 export { default as HeroHome } from "./HeroHome";
 export { default as Form } from "./Sign-form";
+export { default as Profiles } from "./profile";
+export { default as Loading } from "./loading";
