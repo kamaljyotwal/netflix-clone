@@ -1,11 +1,38 @@
 import styled, { createGlobalStyle } from "styled-components/macro";
 
+export const Picture = styled.img`
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -100px;
+  margin-left: -22px;
+`;
+
+export const LockBody = createGlobalStyle`
+  body {
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+`;
+
+export const ReleaseBody = createGlobalStyle`
+  body {
+    overflow: visible;
+  }
+`;
+
 export const Spinner = styled.div`
+  /* border: 5px solid gold; */
   position: fixed;
   width: 100%;
   height: 100%;
   background-color: black;
   z-index: 999;
+  box-sizing: border-box;
 
   :after {
     content: "";
@@ -59,26 +86,5 @@ export const Spinner = styled.div`
     to {
       transform: rotate(360deg);
     }
-  }
-`;
-export const Picture = styled.img`
-  width: 50px;
-  height: 50px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  margin-top: -100px;
-  margin-left: -22px;
-`;
-
-export const LockBody = createGlobalStyle`
-  body {
-    overflow: hidden;
-  }
-`;
-
-export const ReleaseBody = createGlobalStyle`
-  body {
-    overflow: visible;
   }
 `;
