@@ -7,3 +7,5 @@ export { default as HeroHome } from "./HeroHome";
 export { default as Form } from "./Sign-form";
 export { default as Profiles } from "./profile";
 export { default as Loading } from "./loading";
+export { default as Card } from "./card";
+export { default as Player } from "./player";

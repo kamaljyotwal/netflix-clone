@@ -12,5 +12,5 @@ export default function Browse() {
   // console.log(series);
 
   // console.log(seenow);
-  return <BrowseContainer />;
+  return <BrowseContainer slides={slides} />;
 }

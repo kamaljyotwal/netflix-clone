@@ -3,25 +3,20 @@ import { Link } from "react-router-dom";
 
 export const Background = styled.section`
   /* border: 1px solid white; */
-  /* display: flex;
-  flex-direction: column; */
-
   background: url(${({ src }) =>src ? `../images/misc/${src}.jpg` : "../images/misc/home-bg.jpg"})
-    top center / cover no-repeat;
-
-  min-height: 100vh;
+     top center / cover no-repeat;
   width: 100%;
-
-  height: auto;
+  height: ${(props) => (props.notfull === true ? "80vh" : "100vh")};
+ 
   .overlay {
     width: auto;
     min-height: 100vh;
     background: rgba(333, 444, 331, 0.4);
   }
 
-  @media (max-width: 1100px) {
+  /* @media (max-width: 1100px) {
     ${({ dontShowOnSmallViewPort }) => dontShowOnSmallViewPort && `background: none;`}
-  }
+  } */
 `;
 
 export const OuterMostDiv = styled.div`
@@ -47,12 +42,13 @@ export const Group = styled.div`
 `;
 
 export const Container = styled.div`
-  border: 1px solid green;
+  /* border: 1px solid green; */
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin: 0 30px;
-  height: 64px;
+  /* height: 64px; */
+  height: 4rem;
   padding: 1rem 0 0;
 
   @media (max-width: 1000px) {
@@ -94,11 +90,10 @@ export const ButtonLinkStyled = styled(Link)`
 
 export const OptContainer = styled.div``;
 
-
 export const Feature = styled.div`
-  padding: 170px 0 0 25px;
+  padding: 150px 0 0 25px;
   width: 50%;
-  border: 2px dotted red;
+  /* border: 2px dotted red; */
   color: white;
 
   @media (max-width: 1100px) {
@@ -111,7 +106,6 @@ export const FeatureCallOut = styled.h2`
   line-height: normal;
   font-weight: bold;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.45);
-
 `;
 
 export const Text = styled.p`
@@ -124,6 +118,8 @@ export const TextLink = styled.p`
   text-decoration: none;
   margin-right: 30px;
   cursor: pointer;
+  letter-spacing: 1px;
+  font-weight: ${(props) => (props.active ? "700" : "400")};
 
   &:hover {
     font-weight: 600;
@@ -204,7 +200,6 @@ export const Dropdown = styled.div`
 
 export const Profile = styled.div`
   position: relative;
-
   button {
     cursor: pointer;
   }
@@ -212,5 +207,66 @@ export const Profile = styled.div`
   &:hover > ${Dropdown} {
     height: 180px;
     max-height: auto;
+  }
+`;
+
+export const Search = styled.div`
+  /* border: 2px solid blue; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+export const SearchIcon = styled.button`
+  cursor: pointer;
+  background-color: transparent;
+  border: 0;
+  outline: 0;
+  height: 32px;
+  width: 32px;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  img {
+    filter: brightness(0) invert(1);
+    width: 16px;
+  }
+`;
+
+export const SearchInput = styled.input`
+  background-color: rgba(64, 64, 64, 0.5);
+  color: white;
+  border: 1px solid white;
+  height: 30px;
+  font-size: 14px;
+  border-radius: 4px;
+  padding-left: 8px;
+  transition: width 250ms linear;
+  width: ${(props) => (props.active ? "200px" : "0")};
+  opacity: ${(props) => (props.active ? "1" : "0")};
+  margin-left: ${(props) => (props.active ? "8px" : "0")};
+
+  &:focus {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+`;
+
+export const PlayButton = styled.button`
+  background-color: #e6e6e6;
+  padding: 10px 40px;
+  border-radius: 5px;
+  max-width: 150px;
+  font-weight: bold;
+  font-size: 20px;
+  margin-top: 1.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    border: 1px solid red;
+    background-color: #ff1e1e;
+    color: white;
   }
 `;

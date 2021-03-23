@@ -1,17 +1,22 @@
 import styled from "styled-components/macro";
 
 export const Container = styled.div`
-  border: 3px solid green;
+  /* border: 3px solid red; */
   color: white;
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 90vh;
+  /* max-height: 100vh; */
+  /* overflow: hidden !important; */
+  height: calc(100vh - 4rem);
+  /* height: 500px; */
   background-color: #222;
   overflow: none;
 `;
 
 export const Title = styled.p`
+  padding-bottom: 1rem;
+  padding-top: 1rem;
   width: 100%;
   color: #808080;
   font-size: 48px;
@@ -56,7 +61,7 @@ export const UserItem = styled.li`
   max-width: 200px;
   list-style-type: none;
   text-align: center;
-  margin-right: 30px;
+  /* margin-right: 30px; */
   &:hover > ${Picture} {
     border: 2px solid white;
   }

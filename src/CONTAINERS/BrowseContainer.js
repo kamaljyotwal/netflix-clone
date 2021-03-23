@@ -1,23 +1,32 @@
 import React, { useContext, useState, useEffect } from "react";
 import ProfileContainer from "./ProfileContainer";
 import { FirebaseContext } from "../context/firebaseContext";
-import { Loading, Header } from "../COMPONENTS";
+import { Loading, Header, Card, Player, Footer } from "../COMPONENTS";
 import * as ROUTES from "../CONSTANTS/routes";
+import FooterContainer from "./FooterContainer";
 
-export default function BrowseContainer() {
+export default function BrowseContainer({ slides }) {
+  const [category, setCategory] = useState("films");
   const [profile, setProfile] = useState({});
   const [loading, setLoading] = useState(true);
   const { firebaseConst } = useContext(FirebaseContext);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [slideRows, setSlideRows] = useState([]);
 
   const usr = firebaseConst.auth().currentUser || {};
-  const [show, setshow] = useState(true);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, 2000);
-    // return () => timer();
+    function timer() {
+      setTimeout(() => {
+        setLoading(false);
+      }, 2000);
+    }
+    return () => timer();
   }, [profile.displayName]);
+
+  useEffect(() => {
+    setSlideRows(slides[category]);
+  }, [slides, category]);
 
   // signout function
   function signout() {
@@ -32,21 +41,30 @@ export default function BrowseContainer() {
       });
   }
 
-  // return profile.displayName ? (
-
-  //   <>
-  //     {loading ? <Loading src={usr.photoURL} /> : <Loading.ReleaseBody />}
-  return (
+  return profile.displayName ? (
     <>
-      <Header src="joker1">
+      {loading ? <Loading src={usr.photoURL} /> : <Loading.ReleaseBody />}
+
+      <Header src="joker1" notfull={true}>
         <Header.Frame>
           <Header.Group noHover>
             <Header.Logo to={ROUTES.HOME} src="images/misc/logo.svg" alt="Netflix logo" />
-            <Header.TextLink>Series</Header.TextLink>
-            <Header.TextLink>Films</Header.TextLink>
+            <Header.TextLink
+              active={category === "series" ? true : false}
+              onClick={() => setCategory("series")}
+            >
+              Series
+            </Header.TextLink>
+            <Header.TextLink
+              active={category === "films" ? true : false}
+              onClick={() => setCategory("films")}
+            >
+              Films
+            </Header.TextLink>
           </Header.Group>
 
-          <Header.Group>
+          <Header.Group noHover>
+            <Header.Search searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
             <Header.Profile>
               <Header.Picture src={usr.photoURL} onClick={() => console.log("something")} />
               <Header.Dropdown>
@@ -81,13 +99,38 @@ export default function BrowseContainer() {
             clown, and the guise he projects in a futile attempt to feel like he's part of the world
             around him.
           </Header.Text>
+          <Header.PlayButton>Play</Header.PlayButton>
         </Header.Feature>
       </Header>
-    </>
-  );
 
-  // ) : (
-  //   <ProfileContainer user={usr} setProfile={setProfile} />
-  // );
+      <Card.Group>
+        {slideRows.map((i) => (
+          <Card key={`${category}-${i.title.toLowerCase()}`}>
+            <Card.Title>{i.title}</Card.Title>
+            <Card.Entities>
+              {i.data.map((j) => (
+                <Card.Item key={j.docId} item={j}>
+                  <Card.Image src={`/images/${category}/${j.genre}/${j.slug}/small.jpg`} />
+
+                  <Card.Meta>
+                    <Card.SubTitle>{j.title}</Card.SubTitle>
+                    <Card.Text>{j.description}</Card.Text>
+                  </Card.Meta>
+                </Card.Item>
+              ))}
+            </Card.Entities>
+
+            <Card.Feature category={category}>
+              <Player>
+                <Player.Video src="/videos/bunny.mp4" />
+                <Player.Button>Play</Player.Button>
+              </Player>
+            </Card.Feature>
+          </Card>
+        ))}
+      </Card.Group>
+    </>
+  ) : (
+    <ProfileContainer user={usr} setProfile={setProfile} />
+  );
 }
-// { <Loading.ReleaseBody />}
