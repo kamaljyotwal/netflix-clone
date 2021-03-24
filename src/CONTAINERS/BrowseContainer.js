@@ -1,9 +1,8 @@
 import React, { useContext, useState, useEffect } from "react";
 import ProfileContainer from "./ProfileContainer";
 import { FirebaseContext } from "../context/firebaseContext";
-import { Loading, Header, Card, Player, Footer } from "../COMPONENTS";
+import { Loading, Header, Card, Player } from "../COMPONENTS";
 import * as ROUTES from "../CONSTANTS/routes";
-import FooterContainer from "./FooterContainer";
 
 export default function BrowseContainer({ slides }) {
   const [category, setCategory] = useState("films");
@@ -19,7 +18,7 @@ export default function BrowseContainer({ slides }) {
     function timer() {
       setTimeout(() => {
         setLoading(false);
-      }, 2000);
+      }, 1500);
     }
     return () => timer();
   }, [profile.displayName]);

@@ -10,6 +10,7 @@ export default function AuthListenerHook() {
       if (AU) {
         localStorage.setItem("AU", JSON.stringify(AU));
         setUser("AU");
+        // setUser(JSON.parse(localStorage.getItem("AU")));
       } else {
         localStorage.removeItem("AU");
         setUser(null);

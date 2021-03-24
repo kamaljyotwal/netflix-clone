@@ -1,37 +1,59 @@
 import React from "react";
 import * as ROUTES from "./CONSTANTS/routes";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Switch } from "react-router-dom";
 import { Home, Browse, SignIn, SignUp } from "./PAGES";
 import LoginHelp from "./PAGES/LoginHelp";
-// import { IsUserRedirect } from "./helpers/routehelp";
+import { IsUserRedirect, ProtectedRoute } from "./helpers/routehelp";
 import { AuthListenerHook } from "./customHooks";
 
 function App() {
-  const userVar = AuthListenerHook();
-  // console.log(userVar);
+  const { user } = AuthListenerHook();
+  // console.log(user);
 
   return (
     <Router>
       <Switch>
-        <Route exact={true} path={ROUTES.HOME}>
+        <IsUserRedirect exact={true} user={user} loggedInpath={ROUTES.BROWSE} path={ROUTES.HOME}>
           <Home />
-        </Route>
+        </IsUserRedirect>
 
-        <Route path={ROUTES.SIGN_IN}>
+        <IsUserRedirect exact={true} user={user} loggedInpath={ROUTES.BROWSE} path={ROUTES.SIGN_IN}>
           <SignIn />
-        </Route>
+        </IsUserRedirect>
 
+        <IsUserRedirect exact={true} user={user} loggedInpath={ROUTES.BROWSE} path={ROUTES.SIGN_UP}>
+          <SignUp />
+        </IsUserRedirect>
+
+        <IsUserRedirect
+          exact={true}
+          user={user}
+          loggedInpath={ROUTES.BROWSE}
+          path={ROUTES.LOGIN_HELP}
+        >
+          <LoginHelp />
+        </IsUserRedirect>
+
+        <ProtectedRoute user={user} signInPage={ROUTES.SIGN_IN}>
+          <Browse />
+        </ProtectedRoute>
+
+        {/* <Route exact={true} path={ROUTES.HOME}>
+          <Home />
+        </Route> */}
+        {/* <Route path={ROUTES.SIGN_IN}>
+          <SignIn />
+        </Route> */}
+        {/* 
         <Route path={ROUTES.SIGN_UP}>
           <SignUp />
-        </Route>
-
-        <Route path={ROUTES.LOGIN_HELP}>
-          <LoginHelp />
-        </Route>
-
-        <Route exact={true} path={ROUTES.BROWSE}>
+        </Route> */}
+        {/* <Route exact={true} path={ROUTES.BROWSE} signInPage={ROUTES.SIGN_IN}>
           <Browse />
-        </Route>
+        </Route> */}
+        {/* <Route path={ROUTES.LOGIN_HELP}>
+          <LoginHelp />
+        </Route> */}
       </Switch>
     </Router>
   );
