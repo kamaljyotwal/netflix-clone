@@ -3,6 +3,7 @@ import ProfileContainer from "./ProfileContainer";
 import { FirebaseContext } from "../context/firebaseContext";
 import { Loading, Header, Card, Player } from "../COMPONENTS";
 import * as ROUTES from "../CONSTANTS/routes";
+import Fuse from "fuse.js";
 
 export default function BrowseContainer({ slides }) {
   const [category, setCategory] = useState("films");
@@ -14,11 +15,12 @@ export default function BrowseContainer({ slides }) {
 
   const usr = firebaseConst.auth().currentUser || {};
 
+  // console.log(slideRows[0])
   useEffect(() => {
     function timer() {
       setTimeout(() => {
         setLoading(false);
-      }, 1500);
+      }, 1000);
     }
     return () => timer();
   }, [profile.displayName]);
@@ -26,6 +28,20 @@ export default function BrowseContainer({ slides }) {
   useEffect(() => {
     setSlideRows(slides[category]);
   }, [slides, category]);
+
+  useEffect(() => {
+    const fuse = new Fuse(slideRows, {
+      threshold: 0.2,
+      keys: ["data.description", "data.title", "data.genre"],
+    });
+    const results = fuse.search(searchTerm).map((i) => i.item);
+    console.log(results);
+    if (slideRows.length > 0 && searchTerm.length > 3 && results.length > 0) {
+      setSlideRows(results);
+    } else {
+      setSlideRows(slides[category]);
+    }
+  }, [searchTerm]);
 
   // signout function
   function signout() {
