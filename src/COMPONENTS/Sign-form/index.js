@@ -72,16 +72,12 @@ Form.Link = function Formlinkstyled({ children, to, ...restProps }) {
 };
 
 Form.Text = function FormText({ children, to, ...restProps }) {
-  return (
-    <>
-      <Text>{children}</Text>
-    </>
-  );
+  return <Text>{children}</Text>;
 };
 Form.Link = function FormLink({ children, to, ...restProps }) {
   return <StyledLink2 to={to}>{children}</StyledLink2>;
 };
 
 Form.SubText = function FormSubText({ children, ...restProps }) {
-  return <SubText>{children}</SubText>;
+  return <SubText {...restProps}>{children}</SubText>;
 };

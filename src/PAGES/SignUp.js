@@ -9,7 +9,7 @@ import { FirebaseContext } from "../context/firebaseContext";
 export default function SignUp() {
   const history = useHistory();
   const [name, setName] = useState("");
-  const [emailAddress, setEmailAddress] = useState("");
+  const [emailAddress, setEmailAddress] = useState(sessionStorage.getItem("email"));
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   // const [registration, setRegistration] = useState(false);
@@ -32,7 +32,6 @@ export default function SignUp() {
       .then(() => history.push(ROUTES.BROWSE))
       .catch((err) => {
         setError(err.message);
-        setEmailAddress("");
         setPassword("");
       });
   };
@@ -51,9 +50,6 @@ export default function SignUp() {
 
             <Form.Form onSubmit={isInvalid ? alerting : handleSignup}>
               {error && <Form.Error>{error}</Form.Error>}
-              {/* {registration && (
-                <Form.Registration>Registered Succesfully, Sign in now</Form.Registration>
-              )} */}
 
               <Form.Input
                 placeholder="First name"
@@ -63,7 +59,7 @@ export default function SignUp() {
               />
 
               <Form.Input
-                placeholder="Email or phone number"
+                placeholder="Email"
                 value={emailAddress}
                 onChange={(e) => setEmailAddress(e.target.value)}
                 type="email"

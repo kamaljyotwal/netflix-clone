@@ -41,6 +41,7 @@ export const Container = styled.div`
 export const Group = styled.div`
   /* border: 5px dotted blue; */
   background: #02070a;
+  background: #000;
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -92,7 +93,7 @@ export const Item = styled.div`
     z-index: 99;
   }
   &:active {
-    border: 2px solid #eee;
+    outline: 1px solid #eee;
     transform: scale(1.2);
   }
   /* &:hover:first-of-type {

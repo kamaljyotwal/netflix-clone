@@ -57,14 +57,15 @@ export const Button = styled.button`
   font-weight: bold;
   font-size: 20px;
   margin-top: 1.5rem;
-  margin-left: 1.5rem;
+  margin-left: ${(props) => (props.noMarginLeft ? "0" : "1.5rem")};
   cursor: pointer;
   /* border: none; */
   outline: none;
+  border: none;
   transition: background-color 0.3s ease;
 
   &:hover {
-    border: 1px solid red;
+    /* border: 1px solid red; */
     background-color: #ff1e1e;
     color: white;
   }

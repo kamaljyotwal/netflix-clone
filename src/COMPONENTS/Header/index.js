@@ -16,7 +16,12 @@ import {
   Dropdown,
   Search,
   SearchIcon,
-  SearchInput,PlayButton
+  SearchInput,
+  PlayButton,
+  TitleImg,
+  MetaInfo,
+  Textinfo,
+  Lightinfo,
 } from "./styles/HeaderStyles";
 import { Link as RouterLink } from "react-router-dom";
 
@@ -45,7 +50,11 @@ Header.Logo = function HeaderLogo({ to, ...restProps }) {
 };
 
 Header.ButtonLink = function HeaderButtonLink({ children, to, ...restProps }) {
-  return <ButtonLinkStyled to={to}>{children}</ButtonLinkStyled>;
+  return (
+    <ButtonLinkStyled to={to} {...restProps}>
+      {children}
+    </ButtonLinkStyled>
+  );
 };
 
 Header.Text = function HeaderText({ children, ...restProps }) {
@@ -100,4 +109,22 @@ Header.Search = function HeaderSearch({ searchTerm, setSearchTerm }) {
 
 Header.PlayButton = function HeaderPlayButton({ children, ...restProps }) {
   return <PlayButton {...restProps}>{children}</PlayButton>;
+};
+
+Header.Seriesimg = function HeaderSeriesimg({ src, ...restProps }) {
+  return <TitleImg src="../images/misc/seriestitle.png" />;
+  // return <TitleImg src={src} />;
+};
+Header.Textinfo = function HeaderTextinfo({ children, ...restProps }) {
+  return <Textinfo>{children}</Textinfo>;
+  // return <TitleImg src={src} />;
+};
+
+Header.MetaInfo = function HeaderMetaInfo({ children, ...restProps }) {
+  return <MetaInfo>{children}</MetaInfo>;
+  // return <TitleImg src={src} />;
+};
+
+Header.Lightinfo = function HeaderLightInfo({ children, ...restProps }) {
+  return <Lightinfo>{children}</Lightinfo>;
 };

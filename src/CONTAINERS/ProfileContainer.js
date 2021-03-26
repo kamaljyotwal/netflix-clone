@@ -15,7 +15,7 @@ export default function ProfileContainer({ user, setProfile }) {
         <Profiles.Title>Who's Watching?</Profiles.Title>
         <Profiles.List>
           <Profiles.User
-            onClick={() =>
+            onMouseEnter={() =>
               setProfile({
                 displayName: user.displayName,
                 photoURL: user.photoURL,
@@ -30,3 +30,9 @@ export default function ProfileContainer({ user, setProfile }) {
     </>
   );
 }
+//  onMouseEnter={() =>
+// setProfile({
+//   displayName: user.displayName,
+//   photoURL: user.photoURL,
+// })
+// }

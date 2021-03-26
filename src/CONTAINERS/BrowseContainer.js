@@ -20,7 +20,7 @@ export default function BrowseContainer({ slides }) {
     function timer() {
       setTimeout(() => {
         setLoading(false);
-      }, 1000);
+      }, 1800);
     }
     return () => timer();
   }, [profile.displayName]);
@@ -60,7 +60,7 @@ export default function BrowseContainer({ slides }) {
     <>
       {loading ? <Loading src={usr.photoURL} /> : <Loading.ReleaseBody />}
 
-      <Header src="joker1" notfull={true}>
+      <Header src="narc3" notfull={true}>
         <Header.Frame>
           <Header.Group noHover>
             <Header.Logo to={ROUTES.HOME} src="images/misc/logo.svg" alt="Netflix logo" />
@@ -107,14 +107,27 @@ export default function BrowseContainer({ slides }) {
         </Header.Frame>
 
         <Header.Feature>
-          <Header.FeatureCallOut>Watch Joker Now</Header.FeatureCallOut>
+          <Header.Seriesimg src="seriestitle" />
+          {/* <Header.FeatureCallOut>Watch Joker Now</Header.FeatureCallOut> */}
           <Header.Text>
-            Forever alone in a crowd, failed comedian Arthur Fleck seeks connection as he walks the
-            streets of Gotham City. Arthur wears two masks -- the one he paints for his day job as a
-            clown, and the guise he projects in a futile attempt to feel like he's part of the world
-            around him.
+            The true story of Colombia's infamously violent and powerful drug cartels fuels this
+            gritty gangster drama series. As drug lord Pablo Escobar rises, Colombian and U.S. law
+            enforcement find themselves battling an enemy who will do anything to keep his empire.
+            <br />
           </Header.Text>
-          <Header.PlayButton>Play</Header.PlayButton>
+
+          <Header.MetaInfo>2015 | 18+ | 3 Seasons | TV Dramas</Header.MetaInfo>
+          <Header.Textinfo>
+            <Header.Lightinfo>Starring:</Header.Lightinfo> Wagner Moura, Pedro Pascal, Boyd Holbrook
+          </Header.Textinfo>
+          <Header.Textinfo>
+            <Header.Lightinfo>Creators:</Header.Lightinfo> Chris Brancato, Carlo Bernard, Doug Miro
+          </Header.Textinfo>
+
+          <Player>
+            <Player.Video src="/videos/narcos.mp4" />
+            <Player.Button noMarginLeft>Play</Player.Button>
+          </Player>
         </Header.Feature>
       </Header>
 
@@ -137,7 +150,7 @@ export default function BrowseContainer({ slides }) {
 
             <Card.Feature category={category}>
               <Player>
-                <Player.Video src="/videos/bunny.mp4" />
+                <Player.Video src="/videos/intro.mp4" />
                 <Player.Button>Play</Player.Button>
               </Player>
             </Card.Feature>

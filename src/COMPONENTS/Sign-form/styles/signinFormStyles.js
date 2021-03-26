@@ -136,4 +136,6 @@ export const SubText = styled.p`
   margin-top: 1rem;
   color: #737373;
   font-size: 13px;
+  /* border: 1px solid red; */
+  text-align: ${({ center }) => center && "center"};
 `;

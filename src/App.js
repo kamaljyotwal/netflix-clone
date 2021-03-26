@@ -1,8 +1,7 @@
 import React from "react";
 import * as ROUTES from "./CONSTANTS/routes";
 import { BrowserRouter as Router, Switch } from "react-router-dom";
-import { Home, Browse, SignIn, SignUp } from "./PAGES";
-import LoginHelp from "./PAGES/LoginHelp";
+import { Home, Browse, SignIn, SignUp, LoginHelpPage } from "./PAGES";
 import { IsUserRedirect, ProtectedRoute } from "./helpers/routehelp";
 import { AuthListenerHook } from "./customHooks";
 
@@ -31,7 +30,7 @@ function App() {
           loggedInpath={ROUTES.BROWSE}
           path={ROUTES.LOGIN_HELP}
         >
-          <LoginHelp />
+          <LoginHelpPage />
         </IsUserRedirect>
 
         <ProtectedRoute user={user} signInPage={ROUTES.SIGN_IN}>

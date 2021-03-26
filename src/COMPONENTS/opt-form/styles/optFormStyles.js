@@ -15,19 +15,22 @@ export const Text = styled.div`
   padding: 1rem 0 1.2rem;
   font-family: Arial, Helvetica, sans-serif;
 `;
-export const FieldContainer = styled.div`
+export const FieldContainer = styled.form`
   /* border: 2px solid gold; */
   display: flex;
   height: 60px;
 `;
 
-export const Input = styled.input.attrs({ type: "email" })`
+// export const Input = styled.input.attrs({ type: "email" })`
+export const Input = styled.input`
   /* border:2px solid green; */
   outline: none;
-  /* height: auto; */
+  height: auto;
   width: 65%;
-  font-size: 1.3rem;
-  padding: 10px 1rem;
+  height: 60px;
+  font-size: 1.25rem;
+  border: none;
+  padding: 1px 1rem;
 `;
 
 export const Button = styled.button`
@@ -54,4 +57,14 @@ export const Button = styled.button`
     width: auto;
     margin-left: 10px;
   }
+`;
+
+export const Warning = styled.p`
+  color: #ffa00a;
+  text-decoration: none solid rgb(255, 160, 10);
+  font-size: 15px;
+  font-family: Helvetica, sans-serif;
+  font-weight: bold;
+  padding-top: 5px;
+  padding-left: 5px;
 `;

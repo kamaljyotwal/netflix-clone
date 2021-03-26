@@ -27,7 +27,7 @@ Player.Video = function PlayerVideo({ src, ...restProps }) {
     showPlayer &&
     ReactDOM.createPortal(
       <Overlay {...restProps}>
-        <video id="netflix-player" controls>
+        <video id="netflix-player" controls autoPlay>
           <source src={src} type="video/mp4" />
         </video>
         <Close onClick={() => setshowPlayer((showPlayer) => !showPlayer)}>

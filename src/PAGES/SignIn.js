@@ -42,7 +42,7 @@ export default function SignIn() {
             <Form.Form onSubmit={isInvalid ? alerting : handleSignin}>
               {error && <Form.Error>{error}</Form.Error>}
               <Form.Input
-                placeholder="Email or phone number"
+                placeholder="Email "
                 value={emailAddress}
                 onChange={(e) => setEmailAddress(e.target.value)}
                 type="email"

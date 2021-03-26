@@ -2,21 +2,23 @@ import styled from "styled-components/macro";
 import { Link } from "react-router-dom";
 
 export const Background = styled.section`
-  /* border: 1px solid white; */
-  background: url(${({ src }) =>src ? `../images/misc/${src}.jpg` : "../images/misc/home-bg.jpg"})
-     top center / cover no-repeat;
+  /* border: 2px solid red; */
+  background: url(${({ src }) =>src ? `../images/misc/${src}.jpg` : "../images/misc/img6.jpg"});
+  /* background-position: right center; */
+  background-position: ${(props) => (props.position ? "top" : "right center")};
+  background-repeat: no-repeat;
+  background-color: rgba(0, 0, 0);
+  background-size: ${(props) => (props.notfull ? "contain" : "cover")};
   width: 100%;
-  height: ${(props) => (props.notfull === true ? "80vh" : "100vh")};
- 
+  height: ${(props) => (props.notfull === true ? "85vh" : "100vh")};
+  /* height:100vh; */
+  position: relative;
+
   .overlay {
     width: auto;
     min-height: 100vh;
     background: rgba(333, 444, 331, 0.4);
   }
-
-  /* @media (max-width: 1100px) {
-    ${({ dontShowOnSmallViewPort }) => dontShowOnSmallViewPort && `background: none;`}
-  } */
 `;
 
 export const OuterMostDiv = styled.div`
@@ -42,7 +44,7 @@ export const Group = styled.div`
 `;
 
 export const Container = styled.div`
-  /* border: 1px solid green; */
+  /* border: 2px solid green; */
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -50,6 +52,7 @@ export const Container = styled.div`
   /* height: 64px; */
   height: 4rem;
   padding: 1rem 0 0;
+  z-index: 10;
 
   @media (max-width: 1000px) {
     margin: 0 30px;
@@ -69,14 +72,17 @@ export const LogoImg = styled.img`
 
 export const ButtonLinkStyled = styled(Link)`
   border: 2px solid red;
+  /* border: 2px solid green; */
   text-decoration: none;
   display: block;
-  background-color: #e50914;
+  background-color: ${(props) => (props.noborder ? "transparent" : "#e50914")};
+  color: ${(props) => (props.noborder ? "#e50914" : "white")};
+  font-weight: ${(props) => props.noborder && "bolder"};
+  font-size: ${(props) => (props.noborder ? "15px" : "15px")};
+  /* background-color: yellow; */
   width: 84px;
   height: fit-content;
-  color: white;
   border: 0;
-  font-size: 15px;
   border-radius: 4px;
   padding: 8px 17px;
   cursor: pointer;
@@ -84,21 +90,26 @@ export const ButtonLinkStyled = styled(Link)`
   box-sizing: border-box;
 
   &:hover {
-    background: #f40612;
+    color: ${(props) => props.noborder && "white"};
+    background: ${(props) => (props.noborder ? "transparent" : "#f40612")};
   }
 `;
 
 export const OptContainer = styled.div``;
 
 export const Feature = styled.div`
-  padding: 150px 0 0 25px;
+  /* padding: 150px 0 0 25px; */
   width: 50%;
   /* border: 2px dotted red; */
+  margin-left: 1rem;
   color: white;
+  /* height: 500px; */
+  padding-top: 70px;
+  padding-left: 1rem;
 
-  @media (max-width: 1100px) {
+  /* @media (max-width: 1100px) {
     display: none;
-  }
+  } */
 `;
 
 export const FeatureCallOut = styled.h2`
@@ -109,8 +120,12 @@ export const FeatureCallOut = styled.h2`
 `;
 
 export const Text = styled.p`
-  font-size: 20px;
+  font-size: 19px;
   line-height: normal;
+  /* font-family:sans-serif; */
+  /* border:2px solid red; */
+  padding-bottom: 1.3rem;
+  padding-top: 1.5rem;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.45);
 `;
 
@@ -269,4 +284,34 @@ export const PlayButton = styled.button`
     background-color: #ff1e1e;
     color: white;
   }
+`;
+
+export const TitleImg = styled.img`
+  /* border: 2px solid yellow; */
+  height: 100px;
+  width: auto;
+  z-index: 800;
+  /* padding-bottom: 4rem; */
+`;
+
+export const Textinfo = styled.div`
+  /* padding-top: 1rem; */
+  line-height: 22px;
+  font-size: 15px;
+  font-family: helvetica;
+  /* border:1px solid blue; */
+  color: #eee;
+`;
+export const MetaInfo = styled.div`
+  color: #a3a3a3;
+  font-size: 16px;
+  text-decoration: none solid rgb(163, 163, 163);
+  padding-bottom: 1.3em;
+  /* border:1px solid blue;  */
+`;
+
+export const Lightinfo = styled.span`
+  color: #a3a3a3;
+  font-size: 16px;
+  text-decoration: none solid rgb(163, 163, 163);
 `;
