@@ -3,13 +3,14 @@ import { Link } from "react-router-dom";
 
 export const Container = styled.div`
   /* border: 2px solid blue; */
-  padding: 4rem;
+  padding: 4rem 4rem 3rem 4rem;
   width: 450px;
   height: auto;
   margin: 0 auto;
   background-color: rgba(0, 0, 0, 0.7);
   margin-top: 3rem;
-  margin-bottom: 2rem;
+  /* margin-bottom: 2rem; */
+
 `;
 export const Title = styled.div`
   font-size: 32px;
@@ -137,5 +138,5 @@ export const SubText = styled.p`
   color: #737373;
   font-size: 13px;
   /* border: 1px solid red; */
-  text-align: ${({ center }) => center && "center"};
+  text-align: center;
 `;

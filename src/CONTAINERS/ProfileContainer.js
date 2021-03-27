@@ -15,13 +15,15 @@ export default function ProfileContainer({ user, setProfile }) {
         <Profiles.Title>Who's Watching?</Profiles.Title>
         <Profiles.List>
           <Profiles.User
-            onMouseEnter={() =>
+            onMouseOver={() =>
               setProfile({
                 displayName: user.displayName,
                 photoURL: user.photoURL,
               })
             }
+      
           >
+            {/* setTimeout(function(){ alert("Hello"); }, 3000); */}
             <Profiles.Picture src={user.photoURL} />
             <Profiles.Name>{user.displayName}</Profiles.Name>
           </Profiles.User>
@@ -30,9 +32,3 @@ export default function ProfileContainer({ user, setProfile }) {
     </>
   );
 }
-//  onMouseEnter={() =>
-// setProfile({
-//   displayName: user.displayName,
-//   photoURL: user.photoURL,
-// })
-// }

@@ -49,7 +49,29 @@ export default function Home() {
         </OptForm>
       </HeaderContainer>
       <JumbotronContainer />
-      <FaqContainer />
+
+      <FaqContainer>
+        <OptForm>
+          <OptForm.Text>
+            Ready to watch? Enter your email to create or restart your membership.
+          </OptForm.Text>
+
+          <OptForm.FieldContainer onSubmit={optfunc}>
+            <OptForm.Input
+              onChange={(e) => seteEmailInput(e.target.value)}
+              value={emailInput}
+              type="email"
+            />
+            <OptForm.Button>
+              Get Started
+              <img src="./images/icons/chevron-right.png" alt="click to submit email" />
+            </OptForm.Button>
+          </OptForm.FieldContainer>
+
+          {emailWarning && <OptForm.Warning>Email is required.</OptForm.Warning>}
+        </OptForm>
+      </FaqContainer>
+      
       <FooterContainer />
     </>
   );

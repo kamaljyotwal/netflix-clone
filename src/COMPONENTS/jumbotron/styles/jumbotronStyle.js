@@ -37,6 +37,8 @@ export const Panel = styled.div`
   /* border: 2px dotted green; */
   width: 50%;
 
+  position: relative !important;
+
   @media (max-width: 1000px) {
     width: 100%;
     overflow: hidden;
@@ -80,14 +82,34 @@ export const SubTitle = styled.p`
   }
 `;
 
-export const Image = styled.img`
-  max-width: 100%;
-  height: auto;
-  display: flex;
-  align-items: center;
-  /* margin:0 auto; */
+// export const ImageContainer = styled.div`
+//   border: 1px solid yellow;
+//   z-index: 10;
+//   overflow:hidden;
+// `;
 
-  @media (max-width: 1100px) {
-    /* margin:0 auto; */
+export const Image = styled.img`
+  width: 100%;
+  height: auto;
+`;
+//   max-width: 100%;
+//   height: auto;
+//   display: flex;
+//   align-items: center;
+//   /* margin:0 auto; */
+//   z-index: 20;
+
+//   @media (max-width: 1100px) {
+//     /* margin:0 auto; */
+//   }
+// `;
+export const VideoContainer = styled.div`
+  z-index: 2;
+  width: 100%;
+  margin: 0 auto;
+  height: auto;
+  video {
+    width: 100%;
+    height: 100%;
   }
 `;

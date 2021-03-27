@@ -7,6 +7,7 @@ import {
   SubTitle,
   Image,
   Panel,
+  VideoContainer,
 } from "./styles/jumbotronStyle";
 
 export default function Jumbotron({ direction = "row", children, ...restProps }) {
@@ -35,4 +36,23 @@ Jumbotron.SubTitle = function JumbotronSubTitle({ children, ...restProps }) {
 
 Jumbotron.Image = function JumbotronImage({ ...restProps }) {
   return <Image {...restProps} />;
+};
+Jumbotron.Video = function JumbotronVideo({ src, ...restProps }) {
+  return (
+    <VideoContainer {...restProps}>
+      <video autoPlay muted loop>
+        <source src={src} type="video/mp4" />
+      </video>
+    </VideoContainer>
+  );
+};
+
+Jumbotron.Video2 = function JumbotronVideo({ src, ...restProps }) {
+  return (
+    <VideoContainer {...restProps}>
+      <video autoPlay muted loop>
+        <source src={src} type="video/mp4" />
+      </video>
+    </VideoContainer>
+  );
 };

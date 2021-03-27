@@ -3,17 +3,15 @@ import { Link } from "react-router-dom";
 
 export const Background = styled.section`
   /* border: 2px solid red; */
-  background: url(${({ src }) =>src ? `../images/misc/${src}.jpg` : "../images/misc/img6.jpg"});
+  background: url(${({ src }) => (src ? `../images/misc/${src}.jpg` : "../images/misc/img6.jpg")});
   /* background-position: right center; */
   background-position: ${(props) => (props.position ? "top" : "right center")};
   background-repeat: no-repeat;
   background-color: rgba(0, 0, 0);
   background-size: ${(props) => (props.notfull ? "contain" : "cover")};
   width: 100%;
-  height: ${(props) => (props.notfull === true ? "85vh" : "100vh")};
-  /* height:100vh; */
-  position: relative;
-
+  height: ${(props) => (props.notfull === true ? "85vh" : "105vh")};
+  min-height: 100vh;
   .overlay {
     width: auto;
     min-height: 100vh;
