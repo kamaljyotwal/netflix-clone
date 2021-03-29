@@ -1,5 +1,15 @@
 import React from "react";
-import { Container, Content, Row, Column, Link, Text, Title } from "./styles/footerStyle";
+import {
+  Container,
+  Content,
+  Row,
+  Column,
+  Link,
+  Text,
+  Title,
+  Note,
+  Href,
+} from "./styles/footerStyle";
 
 export default function Footer({ children, ...restProps }) {
   return <Container {...restProps}>{children}</Container>;
@@ -31,4 +41,16 @@ Footer.Text = function FooterText({ children, ...restProps }) {
 
 Footer.Text = function FooterText({ children, ...restProps }) {
   return <Text {...restProps}>{children}</Text>;
+};
+
+Footer.Note = function FooterNote({ children }) {
+  return <Note>{children}</Note>;
+};
+
+Footer.Href = function FooterHref({ children }) {
+  return (
+    <a target="_blank" rel="noreferrer" href="https://github.com/kamaljyotwal">
+      <Href>{children}</Href>
+    </a>
+  );
 };

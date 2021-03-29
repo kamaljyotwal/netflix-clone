@@ -11,7 +11,7 @@ export const Background = styled.section`
   background-size: ${(props) => (props.notfull ? "contain" : "cover")};
   width: 100%;
   height: ${(props) => (props.notfull === true ? "85vh" : "105vh")};
-  min-height: 100vh;
+  /* min-height: 100vh; */
   .overlay {
     width: auto;
     min-height: 100vh;

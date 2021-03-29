@@ -6,7 +6,7 @@ import * as ROUTES from "../CONSTANTS/routes";
 import Fuse from "fuse.js";
 
 export default function BrowseContainer({ slides }) {
-  const [category, setCategory] = useState("films");
+  const [category, setCategory] = useState("series");
   const [profile, setProfile] = useState({});
   const [loading, setLoading] = useState(true);
   const { firebaseConst } = useContext(FirebaseContext);
@@ -15,7 +15,6 @@ export default function BrowseContainer({ slides }) {
 
   const usr = firebaseConst.auth().currentUser || {};
 
-  // console.log(slideRows[0])
   useEffect(() => {
     function timer() {
       setTimeout(() => {
@@ -26,10 +25,8 @@ export default function BrowseContainer({ slides }) {
   }, [profile.displayName]);
 
   useEffect(() => {
-    function settingrows() {
-      setSlideRows(slides[category]);
-    }
-    return () => settingrows();
+    setSlideRows(slides[category]);
+    return () => setSlideRows(slides[category]);
   }, [slides, category]);
 
   useEffect(() => {
@@ -38,12 +35,13 @@ export default function BrowseContainer({ slides }) {
       keys: ["data.description", "data.title", "data.genre"],
     });
     const results = fuse.search(searchTerm).map((i) => i.item);
-    console.log(results);
+    // console.log(results);
     if (slideRows.length > 0 && searchTerm.length > 3 && results.length > 0) {
       setSlideRows(results);
     } else {
       setSlideRows(slides[category]);
     }
+    // eslint-disable-next-line
   }, [searchTerm]);
 
   // signout function
@@ -63,7 +61,7 @@ export default function BrowseContainer({ slides }) {
     <>
       {loading ? <Loading src={usr.photoURL} /> : <Loading.ReleaseBody />}
 
-      <Header src="narc3" notfull={true}>
+      <Header src="narc3" notfull>
         <Header.Frame>
           <Header.Group noHover>
             <Header.Logo to={ROUTES.HOME} src="images/misc/logo.svg" alt="Netflix logo" />

@@ -21,7 +21,6 @@ export const FieldContainer = styled.form`
   height: 60px;
 `;
 
-// export const Input = styled.input.attrs({ type: "email" })`
 export const Input = styled.input`
   /* border:2px solid green; */
   outline: none;
