@@ -1,5 +1,13 @@
 import React from "react";
-import { Container, Input, Button, Text, FieldContainer, Warning } from "./styles/optFormStyles";
+import {
+  Container,
+  Input,
+  Button,
+  Text,
+  FieldContainer,
+  Warning,
+  InnerContainer,
+} from "./styles/optFormStyles";
 
 export default function OptForm({ children, ...restProps }) {
   return <Container {...restProps}>{children}</Container>;
@@ -18,11 +26,11 @@ OptForm.Button = function OptFormButton({ children, ...restProps }) {
 };
 
 OptForm.FieldContainer = function OptFormFieldContainer({ children, ...restProps }) {
-  return (
-    <FieldContainer {...restProps}>
-      {children}
-    </FieldContainer>
-  );
+  return <FieldContainer {...restProps}>{children}</FieldContainer>;
+};
+
+OptForm.InnerContainer = function OptFormOuterContainer({ children, ...restProps }) {
+  return <InnerContainer {...restProps}>{children}</InnerContainer>;
 };
 OptForm.Warning = function OptFormButton({ children, ...restProps }) {
   return <Warning {...restProps}>{children}</Warning>;

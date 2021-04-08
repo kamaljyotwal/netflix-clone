@@ -1,17 +1,18 @@
 import styled from "styled-components/macro";
 
 export const Container = styled.div`
-  /* border:2px solid red; */
+  /* border: 2px solid red; */
   background-color: black;
   border-bottom: 8px solid #222;
   padding: 70px 45px;
+
   @media (max-width: 550px) {
-    padding: 70px 0;
+    padding: 2rem 0;
   }
 `;
 
 export const Inner = styled.div`
-  /* border: 2px solid red; */
+  /* border: 2px solid yellow; */
   max-width: 800px;
   margin: 0 auto;
 
@@ -20,7 +21,7 @@ export const Inner = styled.div`
   @media (max-width: 1000px) {
     max-width: 600px;
   }
-  @media (max-width: 550px) {
+  @media (max-width: 500px) {
     max-width: 100%;
   }
 `;
@@ -34,12 +35,18 @@ export const Title = styled.p`
   text-align: center;
   /* padding-top: 1rem ; */
   padding-bottom: 3rem;
+  /* border: 1px solid red; */
 
   @media (max-width: 1000px) {
     font-size: 40px;
   }
   @media (max-width: 550px) {
-    font-size: 26px;
+    width: 70% !important;
+    text-align: center;
+    padding-bottom: 1rem;
+    font-size: 25px;
+    margin: 0 auto;
+    min-width: 200px;
   }
 `;
 export const Item = styled.div`
@@ -48,16 +55,12 @@ export const Item = styled.div`
   background-color: #303030;
   font-size: 26px;
   margin-bottom: 8px;
-  /* 
-  &:last-of-type {
-    margin-bottom: 3rem;
-  } */
 
   @media (max-width: 1000px) {
     font-size: 20px;
   }
   @media (max-width: 550px) {
-    font-size: 18px;
+    font-size: 16px;
   }
 `;
 
@@ -76,7 +79,7 @@ export const Header = styled.div`
     user-select: none;
     font-weight: 100;
 
-    @media (max-width: 600px) {
+    @media (max-width: 550px) {
       width: 16px;
       height: auto;
     }
@@ -93,6 +96,6 @@ export const Body = styled.div`
     font-size: 20px;
   }
   @media (max-width: 550px) {
-    font-size: 18px;
+    font-size: 15px;
   }
 `;

@@ -1,5 +1,6 @@
 import React from "react";
 import { Footer } from "../COMPONENTS/index";
+
 export default function FooterContainer() {
   return (
     <Footer>
@@ -39,7 +40,9 @@ export default function FooterContainer() {
       </Footer.Content>
       <Footer.Note>
         This site is not related or affiliated to Netflix Inc. and is a dummy project by
-        <Footer.Href> @kamaljyotwal.</Footer.Href>
+        <Footer.Href href="https://github.com/kamaljyotwal" target="_blank" rel="noreferrer">
+          @kamaljyotwal.
+        </Footer.Href>
       </Footer.Note>
     </Footer>
   );

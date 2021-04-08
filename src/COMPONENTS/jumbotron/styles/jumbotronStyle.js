@@ -11,8 +11,12 @@ export const OuterDiv = styled.div`
   color: white;
   overflow: hidden;
   padding: 70px 45px;
+  /* border: 2px solid yellow; */
   &:first-of-type {
     border-top: 8px solid #222;
+  }
+  @media (max-width: 500px) {
+    padding: 1rem;
   }
 `;
 
@@ -20,7 +24,7 @@ export const InnerDiv = styled.div`
   font-family: "Netflix Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   max-width: 1100px;
   margin: 0 auto;
-  /* border:2px solid gold; */
+  /* border: 2px solid green; */
   display: flex;
   flex-direction: ${({ direction }) => direction};
   align-items: center;
@@ -34,9 +38,8 @@ export const InnerDiv = styled.div`
 `;
 
 export const Panel = styled.div`
-  /* border: 2px dotted green; */
+  /* border: 2px dotted red; */
   width: 50%;
-
   position: relative !important;
 
   @media (max-width: 1000px) {
@@ -46,6 +49,10 @@ export const Panel = styled.div`
     text-align: center;
     word-wrap: break-word;
     margin: 0 auto;
+  }
+  @media (max-width: 500px) {
+    width: 100%;
+    padding: 0;
   }
 `;
 
@@ -62,6 +69,7 @@ export const Title = styled.p`
   vertical-align: baseline;
   white-space: normal;
   word-spacing: 0px;
+  /* border: 2px solid yellow; */
 
   @media (max-width: 1000px) {
     font-size: 40px;
@@ -69,6 +77,14 @@ export const Title = styled.p`
   }
   @media (max-width: 600px) {
     font-size: 35px;
+  }
+  @media (max-width: 500px) {
+    font-size: 1.625rem;
+    line-height: normal;
+    text-align: center;
+    width: 100%;
+    padding-bottom: 10px;
+    margin-top: 1.5rem;
   }
 `;
 
@@ -79,6 +95,9 @@ export const SubTitle = styled.p`
 
   @media (max-width: 1000px) {
     font-size: 18px;
+  }
+  @media (max-width: 500px) {
+    font-size: 1.11rem;
   }
 `;
 
@@ -91,18 +110,11 @@ export const SubTitle = styled.p`
 export const Image = styled.img`
   width: 100%;
   height: auto;
+  @media (max-width: 500px) {
+    margin-top: 0.5rem;
+  }
 `;
-//   max-width: 100%;
-//   height: auto;
-//   display: flex;
-//   align-items: center;
-//   /* margin:0 auto; */
-//   z-index: 20;
 
-//   @media (max-width: 1100px) {
-//     /* margin:0 auto; */
-//   }
-// `;
 export const VideoContainer = styled.div`
   z-index: 2;
   width: 100%;
@@ -111,5 +123,8 @@ export const VideoContainer = styled.div`
   video {
     width: 100%;
     height: 100%;
+  }
+  @media (max-width: 500px) {
+    margin-top: 0.6rem;
   }
 `;

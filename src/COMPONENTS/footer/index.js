@@ -47,10 +47,6 @@ Footer.Note = function FooterNote({ children }) {
   return <Note>{children}</Note>;
 };
 
-Footer.Href = function FooterHref({ children }) {
-  return (
-    <a target="_blank" rel="noreferrer" href="https://github.com/kamaljyotwal">
-      <Href>{children}</Href>
-    </a>
-  );
+Footer.Href = function FooterHref({ children, ...restProps }) {
+  return <Href {...restProps}>{` ${children}`}</Href>;
 };

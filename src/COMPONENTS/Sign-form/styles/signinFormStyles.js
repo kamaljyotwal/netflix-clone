@@ -10,17 +10,24 @@ export const Container = styled.div`
   background-color: rgba(0, 0, 0, 0.7);
   margin-top: 3rem;
   /* margin-bottom: 2rem; */
-
+  @media (max-width: 500px) {
+    width: 90%;
+    height: auto;
+    /* height: 400px; */
+    padding: 1rem;
+    margin-top: 1rem;
+    /* overflow:hidden; */
+  }
 `;
 export const Title = styled.div`
   font-size: 32px;
   color: #fff;
   font-weight: 700;
   padding-bottom: 1.5rem;
-`;
-
-export const FormDiv = styled.form`
-  /* border: 2px solid yellow; */
+  @media (max-width: 500px) {
+    font-size: 28px;
+    padding-bottom: 0.7rem;
+  }
 `;
 
 export const InnerTextContainer = styled.div`
@@ -28,6 +35,9 @@ export const InnerTextContainer = styled.div`
   /* padding: 2rem 4rem; */
   border-radius: 4px;
   margin: 0 auto;
+`;
+export const FormDiv = styled.form`
+  /* border: 2px solid yellow; */
 `;
 
 export const ErrorDiv = styled.div`
@@ -37,6 +47,11 @@ export const ErrorDiv = styled.div`
   border-radius: 4px;
   padding: 0.8rem 1rem;
   margin-bottom: 0.8rem;
+
+  @media (max-width: 500px) {
+    padding: 0.6rem;
+    font-size: 0.9rem;
+  }
 `;
 
 export const RegistrationDiv = styled.div`
@@ -46,10 +61,10 @@ export const RegistrationDiv = styled.div`
   border-radius: 4px;
   padding: 0.8rem 1rem;
   margin-bottom: 0.8rem;
+  /* border: 2px solid yellow; */
 `;
 
 export const Input = styled.input`
-  /* color: #8c8c8c; */
   color: white;
   padding: 10px 20px;
   outline: none;
@@ -60,6 +75,7 @@ export const Input = styled.input`
   width: 100%;
   height: 50px;
   margin-bottom: 1rem;
+  /* border: 2px solid red; */
 
   :active,
   :focus {
@@ -67,6 +83,12 @@ export const Input = styled.input`
   }
   ::placeholder {
     color: #8c8c8c;
+  }
+
+  @media (max-width: 500px) {
+    font-size: 1rem;
+    height: 40px;
+    margin-bottom: 0.8rem;
   }
 `;
 
@@ -84,6 +106,10 @@ export const SubmitBtn = styled.button`
 
   :active {
     outline: initial;
+  }
+  @media (max-width: 500px) {
+    padding: 13px;
+    border: none;
   }
 `;
 
@@ -127,6 +153,9 @@ export const Text = styled.p`
   color: #737373;
   padding-top: 3rem;
   font-size: 17px;
+  @media (max-width: 500px) {
+    padding-top: 1.5rem;
+  }
 `;
 
 export const StyledLink2 = styled(Link)`
@@ -139,4 +168,8 @@ export const SubText = styled.p`
   font-size: 13px;
   /* border: 1px solid red; */
   text-align: center;
+
+  @media (max-width: 500px) {
+    padding-top: 0.8rem;
+  }
 `;

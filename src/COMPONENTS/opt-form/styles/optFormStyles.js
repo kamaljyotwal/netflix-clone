@@ -14,26 +14,53 @@ export const Text = styled.div`
   text-align: center;
   padding: 1rem 0 1.2rem;
   font-family: Arial, Helvetica, sans-serif;
+
+  @media (max-width: 500px) {
+    font-size: 1.1rem;
+    padding: 0.8rem 1rem 0.4rem;
+  }
 `;
 export const FieldContainer = styled.form`
   /* border: 2px solid gold; */
   display: flex;
-  height: 60px;
+  min-height: 60px;
+  height: auto;
+  @media (max-width: 500px) {
+    flex-direction: column;
+    height: auto;
+    width: 85%;
+    margin: auto;
+  }
+`;
+export const InnerContainer = styled.div`
+  /* border:2px dotted green; */
+  display: flex;
+  flex-direction: column;
+  width: 65%;
+  @media (max-width: 500px) {
+    width: 100%;
+  }
 `;
 
 export const Input = styled.input`
-  /* border:2px solid green; */
+  /* border:2px solid red; */
   outline: none;
   height: auto;
-  width: 65%;
+  /* width: 65%; */
   height: 60px;
   font-size: 1.25rem;
   border: none;
   padding: 1px 1rem;
+  @media (max-width: 500px) {
+    width: 100%;
+    height: 45px;
+    font-size: 1.1rem;
+    margin-top: 0.4rem;
+  }
 `;
 
 export const Button = styled.button`
-  /* border:2px solid gold; */
+  /* border: 2px solid gold; */
   border: none;
   background-color: #f40612;
   color: white;
@@ -46,15 +73,28 @@ export const Button = styled.button`
   padding: 0.5rem;
   cursor: pointer;
   /* outline: none; */
+  height: 60px;
   &:hover {
     background-color: red;
   }
 
   img {
-    filter: brightness(0) invert(0.8);
+    filter: brightness(0) invert(0.9);
     height: 20px;
     width: auto;
     margin-left: 10px;
+  }
+
+  @media (max-width: 500px) {
+    width: 44%;
+    font-size: 1rem;
+    margin: 10px auto;
+    height: 36px;
+    img {
+      height: 12px;
+      width: auto;
+      margin-left: 8px;
+    }
   }
 `;
 
@@ -66,4 +106,5 @@ export const Warning = styled.p`
   font-weight: bold;
   padding-top: 5px;
   padding-left: 5px;
+  /* border: 2px solid red; */
 `;

@@ -12,10 +12,16 @@ export const Background = styled.section`
   width: 100%;
   height: ${(props) => (props.notfull === true ? "85vh" : "105vh")};
   /* min-height: 100vh; */
+  /* border: 2px solid green; */
   .overlay {
     width: auto;
     min-height: 100vh;
     background: rgba(333, 444, 331, 0.4);
+  }
+  @media (max-width: 500px) {
+    background-position: top right;
+    min-height: 450px;
+    height:70vh;
   }
 `;
 
@@ -51,7 +57,9 @@ export const Container = styled.div`
   height: 4rem;
   padding: 1rem 0 0;
   z-index: 10;
-
+  @media (max-width: 500px) {
+    height: 3.5rem;
+  }
   @media (max-width: 1000px) {
     margin: 0 30px;
   }
@@ -62,6 +70,10 @@ export const LogoImg = styled.img`
   width: 140px;
   margin-right: 40px;
 
+  @media (max-width: 500px) {
+    height: auto;
+    width: 95px;
+  }
   @media (min-width: 1449px) {
     height: 45px;
     width: 167px;
@@ -90,6 +102,10 @@ export const ButtonLinkStyled = styled(Link)`
   &:hover {
     color: ${(props) => props.noborder && "white"};
     background: ${(props) => (props.noborder ? "transparent" : "#f40612")};
+  }
+  @media (max-width: 500px) {
+    width: auto;
+    padding: 6px 15px;
   }
 `;
 

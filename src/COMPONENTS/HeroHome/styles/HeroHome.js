@@ -17,6 +17,11 @@ export const Title = styled.h1`
   /* border: 2px solid blue; */
   margin: 0;
   padding-bottom: 1rem;
+  @media (max-width: 500px) {
+    padding: 0 1rem 0.9rem;
+    font-size: 1.75rem;
+    padding-top: 0;
+  }
 `;
 
 export const SubTitle = styled.h2`
@@ -25,4 +30,9 @@ export const SubTitle = styled.h2`
   font-size: 26px;
   margin-bottom: 1rem;
   font-weight: 400;
+  
+  @media (max-width: 500px) {
+    font-size: 1.125rem;
+    margin-bottom: 0.1rem;
+  }
 `;

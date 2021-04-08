@@ -28,7 +28,7 @@ export const Entities = styled.div`
 `;
 
 export const Container = styled.div`
-  /* border: 3px solid blue; */
+  border: 3px solid blue;
   width: 96%;
   margin: 0 auto;
   margin-bottom: 2rem;
@@ -39,7 +39,7 @@ export const Container = styled.div`
 `;
 
 export const Group = styled.div`
-  /* border: 5px dotted blue; */
+  border: 5px dotted blue;
   background: #02070a;
   background: #000;
   display: flex;

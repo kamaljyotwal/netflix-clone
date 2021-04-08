@@ -34,18 +34,21 @@ export default function Home() {
           </OptForm.Text>
 
           <OptForm.FieldContainer onSubmit={optfunc}>
-            <OptForm.Input
-              onChange={(e) => seteEmailInput(e.target.value)}
-              value={emailInput}
-              type="email"
-            />
+            <OptForm.InnerContainer>
+              <OptForm.Input
+                onChange={(e) => seteEmailInput(e.target.value)}
+                value={emailInput}
+                type="email"
+              />
+              {emailWarning && <OptForm.Warning>Email is required.</OptForm.Warning>}
+            </OptForm.InnerContainer>
             <OptForm.Button>
               Get Started
               <img src="./images/icons/chevron-right.png" alt="click to submit email" />
             </OptForm.Button>
           </OptForm.FieldContainer>
 
-          {emailWarning && <OptForm.Warning>Email is required.</OptForm.Warning>}
+          {/* {emailWarning && <OptForm.Warning>Email is required.</OptForm.Warning>} */}
         </OptForm>
       </HeaderContainer>
       <JumbotronContainer />
@@ -57,18 +60,19 @@ export default function Home() {
           </OptForm.Text>
 
           <OptForm.FieldContainer onSubmit={optfunc}>
-            <OptForm.Input
-              onChange={(e) => seteEmailInput(e.target.value)}
-              value={emailInput}
-              type="email"
-            />
+            <OptForm.InnerContainer>
+              <OptForm.Input
+                onChange={(e) => seteEmailInput(e.target.value)}
+                value={emailInput}
+                type="email"
+              />
+              {emailWarning && <OptForm.Warning>Email is required.</OptForm.Warning>}
+            </OptForm.InnerContainer>
             <OptForm.Button>
               Get Started
               <img src="./images/icons/chevron-right.png" alt="click to submit email" />
             </OptForm.Button>
           </OptForm.FieldContainer>
-
-          {emailWarning && <OptForm.Warning>Email is required.</OptForm.Warning>}
         </OptForm>
       </FaqContainer>
       
