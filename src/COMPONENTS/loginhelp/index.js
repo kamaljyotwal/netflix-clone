@@ -1,5 +1,5 @@
 import React from "react";
-import { Container,Title,Text,Input,Button } from "./styles/loginhelpStyles";
+import { Container, Title, Text, Input, Button } from "./styles/loginhelpStyles";
 
 export default function LoginHelp({ children, ...restProps }) {
   return <Container {...restProps}>{children}</Container>;
@@ -13,7 +13,11 @@ LoginHelp.Text = function LoginHelpText({ children, ...restProps }) {
   return <Text {...restProps}>{children}</Text>;
 };
 LoginHelp.Input = function LoginHelpInput({ children, ...restProps }) {
-  return <Input {...restProps} placeholder="name@example.com">{children}</Input>;
+  return (
+    <Input {...restProps} placeholder="name@example.com">
+      {children}
+    </Input>
+  );
 };
 
 LoginHelp.Button = function LoginHelpInput({ children, ...restProps }) {

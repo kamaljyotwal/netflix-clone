@@ -7,10 +7,17 @@ export const Text = styled.p`
   font-family: Helvetica, sans-serif;
   padding-bottom: 1rem;
   padding-top: 1rem;
+  /* border: 2px solid red; */
+  @media (max-width: 500px) {
+    font-size: 0.95rem;
+    width: 100%;
+    padding-bottom: 10px;
+    padding-top: 5px;
+  }
 `;
 
 export const Container = styled.div`
-  /* border: 2px solid red; */
+  border: 2px solid red;
   min-width: 300px;
   max-width: 500px;
   width: auto;
@@ -19,6 +26,12 @@ export const Container = styled.div`
   min-height: 200px;
   padding: 3rem 2.5rem;
   height: 480px;
+  @media (max-width: 500px) {
+    margin-top: 1.5rem;
+    padding: 1rem 1.5rem;
+    width: 90%;
+    height: 340px;
+  }
 `;
 export const Title = styled.p`
   font-size: 32px;
@@ -27,6 +40,11 @@ export const Title = styled.p`
   font-family: Helvetica, sans-serif;
   padding-bottom: 1rem;
   padding-top: 1.5rem;
+  @media (max-width: 500px) {
+    font-size: 1.3rem;
+    font-weight: bold;
+    text-align: center;
+  }
 `;
 
 export const Input = styled.input`
@@ -38,6 +56,11 @@ export const Input = styled.input`
   font-size: 1.1rem;
   margin-bottom: 0.8rem;
   margin-top: 2.5rem;
+  border: 1px solid yellow;
+  @media (max-width: 500px) {
+    margin-top: 1.1rem;
+    margin-bottom: 0.1rem;
+  }
 `;
 export const Button = styled.button`
   width: 100%;
@@ -50,4 +73,9 @@ export const Button = styled.button`
   cursor: pointer;
   bottom: 0;
   margin-top: 1rem;
+
+  @media (max-width: 500px) {
+    margin-top: 8px;
+    padding: 0.8rem;
+  }
 `;

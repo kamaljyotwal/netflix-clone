@@ -20,8 +20,11 @@ export const Background = styled.section`
   }
   @media (max-width: 500px) {
     background-position: top right;
-    min-height: 450px;
-    height:70vh;
+    min-height: 470px;
+    /* height: 70vh; */
+    background-size: ${(props) => (props.notfull ? "cover" : "cover")};
+    height: ${(props) => (props.notfull === true ? "55vh" : "70vh")};
+    background-position: bottom;
   }
 `;
 
@@ -73,6 +76,7 @@ export const LogoImg = styled.img`
   @media (max-width: 500px) {
     height: auto;
     width: 95px;
+    margin-right: 1rem;
   }
   @media (min-width: 1449px) {
     height: 45px;
@@ -121,9 +125,10 @@ export const Feature = styled.div`
   padding-top: 70px;
   padding-left: 1rem;
 
-  /* @media (max-width: 1100px) {
-    display: none;
-  } */
+  @media (max-width: 500px) {
+    width: 75%;
+    padding-top: 3rem;
+  }
 `;
 
 export const FeatureCallOut = styled.h2`
@@ -137,10 +142,17 @@ export const Text = styled.p`
   font-size: 19px;
   line-height: normal;
   /* font-family:sans-serif; */
-  /* border:2px solid red; */
+  /* border: 2px solid blue; */
   padding-bottom: 1.3rem;
-  padding-top: 1.5rem;
+  padding-top: 14px;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.45);
+
+  @media (max-width: 500px) {
+    display: none;
+    /* font-size: 1rem;
+    padding-top: 10px;
+    padding-bottom: 1.1rem; */
+  }
 `;
 
 export const TextLink = styled.p`
@@ -149,13 +161,16 @@ export const TextLink = styled.p`
   cursor: pointer;
   letter-spacing: 1px;
   font-weight: ${(props) => (props.active ? "700" : "400")};
-
+  /* border: 2px solid red; */
   &:hover {
     font-weight: 600;
   }
 
   &:last-of-type {
     margin-right: 0;
+  }
+  @media (max-width: 500px) {
+    margin-right: 10px;
   }
 `;
 
@@ -188,6 +203,7 @@ export const Dropdown = styled.div`
   font-size: 14px;
   height: 0;
   transition: all 150ms linear;
+  /* border:1px solid yellow; */
 
   ${TextLink} {
     cursor: default;
@@ -244,6 +260,9 @@ export const Search = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  @media (max-width: 500px) {
+    display: none;
+  }
 `;
 
 export const SearchIcon = styled.button`
@@ -305,25 +324,39 @@ export const TitleImg = styled.img`
   height: 100px;
   width: auto;
   z-index: 800;
+
   /* padding-bottom: 4rem; */
+  @media (max-width: 500px) {
+    width: auto;
+    height: 45px;
+    margin-top: 10px;
+  }
 `;
 
-export const Textinfo = styled.div`
-  /* padding-top: 1rem; */
-  line-height: 22px;
-  font-size: 15px;
-  font-family: helvetica;
-  /* border:1px solid blue; */
-  color: #eee;
-`;
 export const MetaInfo = styled.div`
   color: #a3a3a3;
   font-size: 16px;
   text-decoration: none solid rgb(163, 163, 163);
   padding-bottom: 1.3em;
-  /* border:1px solid blue;  */
-`;
+  /* border: 1px solid yellow; */
 
+  @media (max-width: 500px) {
+    margin-top: 1rem;
+    font-size: 14px;
+  }
+`;
+export const Textinfo = styled.div`
+  /* padding-top: 1rem; */
+  line-height: 22px;
+  font-size: 15px;
+  font-family: helvetica;
+  /* border: 1px solid blue; */
+  color: #eee;
+
+  @media (max-width: 500px) {
+    font-size: 12px;
+  }
+`;
 export const Lightinfo = styled.span`
   color: #a3a3a3;
   font-size: 16px;

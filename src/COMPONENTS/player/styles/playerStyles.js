@@ -26,6 +26,12 @@ export const Overlay = styled.div`
     outline: none;
     position: relative;
   }
+  @media (max-width: 500px) {
+    video {
+      width: 90%;
+      height: auto;
+    }
+  }
 `;
 
 export const Close = styled.button`
@@ -68,5 +74,10 @@ export const Button = styled.button`
     /* border: 1px solid red; */
     background-color: #ff1e1e;
     color: white;
+  }
+  @media (max-width: 500px) {
+    font-size: 15px;
+    padding: 10px 30px;
+    margin-top: 1rem;
   }
 `;

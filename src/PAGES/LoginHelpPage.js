@@ -1,7 +1,7 @@
 import React from "react";
 import { Header, LoginHelp, Form } from "../COMPONENTS";
 import * as ROUTES from "../CONSTANTS/routes";
-
+import FooterContainer from "../CONTAINERS/FooterContainer";
 export default function LoginHelpPage() {
   return (
     <>
@@ -28,6 +28,7 @@ export default function LoginHelpPage() {
           This page is protected by Google reCAPTCHA to ensure you're not a bot.
         </Form.SubText>
       </Header>
+      <FooterContainer />
     </>
   );
 }

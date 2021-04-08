@@ -163,7 +163,7 @@ export const StyledLink2 = styled(Link)`
   margin-left: 5px;
 `;
 export const SubText = styled.p`
-  margin-top: 1rem;
+  margin-top: 0.7rem;
   color: #737373;
   font-size: 13px;
   /* border: 1px solid red; */
