@@ -24,5 +24,13 @@
     "alt": "Money Heist on Netflix",
     "direction": "row",
     "vid": "./videos/frame2.mp4"
+  },
+  {
+    "id": 4,
+    "title": "Create profiles for children.",
+    "subTitle": "Send children on adventures with their favourite characters in a space made just for them—free with your membership.",
+    "image": "/images/misc/jumbo/netflix-sec5.png",
+    "alt": "children's image",
+    "direction": "row-reverse"
   }
 ]

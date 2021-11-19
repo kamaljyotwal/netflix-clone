@@ -13,7 +13,7 @@ export default function JumbotronContainer() {
           </Jumbotron.Panel>
 
           <Jumbotron.Panel>
-            {i.id !== 2 ? (
+            {i.id !== 2 && i.id !== 4 ? (
               <Jumbotron.Video src={i.vid} />
             ) : (
               <Jumbotron.Image src={i.image} alt={i.alt} />
